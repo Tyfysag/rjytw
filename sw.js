@@ -11,7 +11,7 @@ const ASSETS = [
   '/icon-512.png'
 ];
 
-// Установка Service Worker и кеширование ресурсов
+
 self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
@@ -20,7 +20,7 @@ self.addEventListener('install', (event) => {
   );
 });
 
-// Активация и удаление старого кеша
+
 self.addEventListener('activate', (event) => {
   event.waitUntil(
     caches.keys().then((keys) => {
@@ -35,7 +35,7 @@ self.addEventListener('activate', (event) => {
   );
 });
 
-// Перехват запросов и отдача файлов из кеша
+
 self.addEventListener('fetch', (event) => {
   event.respondWith(
     caches.match(event.request).then((cachedResponse) => {
@@ -43,7 +43,7 @@ self.addEventListener('fetch', (event) => {
     })
   );
 });
-// Регистрация Service Worker
+
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
         navigator.serviceWorker.register('/sw.js')
