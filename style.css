@@ -11,7 +11,7 @@ body {
     line-height: 1.6;
 }
 
-/* Шапка сайта (Навигация) */
+
 header {
     background-color: #ffffff;
     padding: 20px 50px;
@@ -45,7 +45,7 @@ nav a:hover {
     color: #d48c00;
 }
 
-/* Главный баннер */
+
 .hero {
     background: linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.7)), url('https://unsplash.com') no-repeat center center/cover;
     padding: 100px 20px;
@@ -82,7 +82,7 @@ nav a:hover {
     transform: translateY(-2px);
 }
 
-/* Блок товаров */
+
 .products {
     padding: 80px 50px;
     max-width: 1200px;
@@ -145,7 +145,7 @@ nav a:hover {
     margin-bottom: 15px;
 }
 
-/* Форма заказа */
+
 .order-section {
     background-color: #f3e9dc;
     padding: 80px 20px;
@@ -181,7 +181,7 @@ nav a:hover {
     font-size: 16px;
 }
 
-/* Подвал */
+
 footer {
     background-color: #4a3300;
     color: #fff;
@@ -190,7 +190,7 @@ footer {
     font-size: 14px;
 }
 
-/* Адаптивность для мобильных */
+
 @media (max-width: 768px) {
     header { padding: 20px; flex-direction: column; gap: 15px; }
     .hero h1 { font-size: 32px; }
