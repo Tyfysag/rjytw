@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Медовая Сказка — Натуральный мёд с пасеки</title>
+    <!-- Подключаем внешний файл стилей -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Подключаем Web App Manifest -->
+    <link rel="manifest" href="manifest.json">
+    <!-- Задаем цвет вкладки для мобильных браузеров -->
+    <meta name="theme-color" content="#FFC107">
+
+</head>
+<body>
+
+    <!-- Шапка сайта -->
+    <header>
+        <div class="logo">🐝 Медовая Сказка</div>
+        <nav>
+            <a href="#products">Каталог</a>
+            <a href="#order">Заказать</a>
+            <a href="#contacts">Контакты</a>
+        </nav>
+    </header>
+
+    <!-- Главный баннер -->
+    <section class="hero">
+        <h1>100% Натуральный мёд премиум качества</h1>
+        <p>Собран с любовью на диких просторах Алтая. Без сахара и ГМО.</p>
+        <a href="#products" class="btn">Перейти в каталог</a>
+    </section>
+
+    <!-- Каталог товаров -->
+    <section class="products" id="products">
+        <h2 class="section-title">Наш Медовый Ассортимент</h2>
+        
+        <div class="product-grid">
+            <!-- Товар 1 -->
+            <div class="product-card">
+                <!-- ЗАМЕНЕНО: путь ведет на ваше локальное фото липового меда -->
+                <img src="lipa.jpg" alt="Липовый мёд" class="product-img">
+                <h3>Липовый мёд</h3>
+                <p class="product-desc">Ароматный мёд с нежным вкусом. Идеален при простуде.</p>
+                <div class="price">650 ₽ / 500г</div>
+                <a href="#order" class="btn" onclick="selectHoney('Липовый мёд')">Купить</a>
+            </div>
+
+            <!-- Товар 2 -->
+            <div class="product-card">
+                <!-- ЗАМЕНЕНО: путь ведет на ваше локальное фото гречишного меда -->
+                <img src="grechiha.jpg" alt="Гречишный мёд" class="product-img">
+                <h3>Гречишный мёд</h3>
+                <p class="product-desc">Терпкий вкус с горчинкой, богат железом и витаминами.</p>
+                <div class="price">700 ₽ / 500г</div>
+                <a href="#order" class="btn" onclick="selectHoney('Гречишный мёд')">Купить</a>
+            </div>
+
+            <!-- Товар 3 -->
+            <div class="product-card">
+                <!-- ЗАМЕНЕНО: путь ведет на ваше локальное фото цветочного меда -->
+                <img src="flowers.jpg" alt="Цветочный (Разнотравье)" class="product-img">
+                <h3>Цветочный (Разнотравье)</h3>
+                <p class="product-desc">Собран с десятков видов луговых цветов. Мягкий вкус.</p>
+                <div class="price">550 ₽ / 500г</div>
+                <a href="#order" class="btn" onclick="selectHoney('Цветочный мёд')">Купить</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Форма заказа -->
+    <section class="order-section" id="order">
+        <h2 class="section-title">Оформить заказ</h2>
+        <div class="order-form">
+            <form onsubmit="handleSubmit(event)">
+                <div class="form-group">
+                    <label for="honey-type">Выберите сорт мёда:</label>
+                    <select id="honey-type" required>
+                        <option value="Липовый мёд">Липовый мёд — 650 ₽</option>
+                        <option value="Гречишный мёд">Гречишный мёд — 700 ₽</option>
+                        <option value="Цветочный мёд">Цветочный (Разнотравье) — 550 ₽</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="name">Ваше имя:</label>
+                    <input type="text" id="name" placeholder="Иван Иванов" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Номер телефона:</label>
+                    <input type="tel" id="phone" placeholder="+7 (999) 000-00-00" required>
+                </div>
+                <button type="submit" class="btn" style="width: 100%;">Подтвердить заказ</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Подвал и контакты -->
+    <footer id="contacts">
+        <p>📍 Наша пасека: Алтайский край, с. Чистый Луг</p>
+        <p>📞 Телефон для справок: 8 (800) 555-35-35 | ✉️ Email: info@med-skazka.ru</p>
+        <p style="margin-top: 15px; opacity: 0.7;">&copy; 2026 Медовая Сказка. Все права защищены.</p>
+    </footer>
+
+    <!-- Скрипт для интерактивности -->
+    <script>
+        function selectHoney(honeyName) {
+            document.getElementById('honey-type').value = honeyName;
+        }
+
+        function handleSubmit(event) {
+            event.preventDefault();
+            const honey = document.getElementById('honey-type').value;
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+
+            alert(`Спасибо за заказ, ${name}!\nМы свяжемся с вами по телефону ${phone} для подтверждения заказа на "${honey}".`);
+        }
+    </script>
+
+</body>
+</html>

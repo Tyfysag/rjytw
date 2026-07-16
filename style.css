@@ -1,0 +1,198 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #fdfbf7;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Шапка сайта (Навигация) */
+header {
+    background-color: #ffffff;
+    padding: 20px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #d48c00;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #555;
+    margin-left: 20px;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #d48c00;
+}
+
+/* Главный баннер */
+.hero {
+    background: linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.7)), url('https://unsplash.com') no-repeat center center/cover;
+    padding: 100px 20px;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 48px;
+    color: #4a3300;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 20px;
+    margin-bottom: 30px;
+    color: #666;
+}
+
+.btn {
+    display: inline-block;
+    background-color: #ffb703;
+    color: #4a3300;
+    padding: 15px 30px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 30px;
+    transition: background 0.3s, transform 0.2s;
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #fb8500;
+    transform: translateY(-2px);
+}
+
+/* Блок товаров */
+.products {
+    padding: 80px 50px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 36px;
+    color: #4a3300;
+    margin-bottom: 40px;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.product-card {
+    background-color: #fff;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    text-align: center;
+    padding-bottom: 25px;
+    border: 1px solid #f0e6d2;
+    transition: transform 0.3s;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+}
+
+.product-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    background-color: #f7f7f7;
+}
+
+.product-card h3 {
+    margin: 15px 0 10px;
+    color: #4a3300;
+}
+
+.product-desc {
+    font-size: 14px;
+    color: #777;
+    padding: 0 15px;
+    margin-bottom: 15px;
+    height: 45px;
+    overflow: hidden;
+}
+
+.price {
+    font-size: 22px;
+    font-weight: bold;
+    color: #d48c00;
+    margin-bottom: 15px;
+}
+
+/* Форма заказа */
+.order-section {
+    background-color: #f3e9dc;
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.order-form {
+    max-width: 500px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.05);
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: #4a3300;
+}
+
+.form-group input, .form-group select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+/* Подвал */
+footer {
+    background-color: #4a3300;
+    color: #fff;
+    text-align: center;
+    padding: 30px;
+    font-size: 14px;
+}
+
+/* Адаптивность для мобильных */
+@media (max-width: 768px) {
+    header { padding: 20px; flex-direction: column; gap: 15px; }
+    .hero h1 { font-size: 32px; }
+    .products { padding: 40px 20px; }
+}
