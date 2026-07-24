@@ -1,14 +1,14 @@
 const CACHE_NAME = 'med-skazka-v1';
 const ASSETS = [
-  '/',
-  '/index.html',
-  '/style.css',
-  '/lipa.jpg',
-  '/grechiha.jpg',
-  '/flowers.jpg',
-  '/manifest.json',
-  '/icon-192.png',
-  '/icon-512.png'
+  '.',
+  'index.html',
+  'style.css',
+  'lipa.jpg',
+  'grechiha.jpg',
+  'flowers.jpg',
+  'manifest.json',
+  'icon-192.png',
+  'icon-512.png'
 ];
 
 
