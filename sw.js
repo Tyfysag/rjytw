@@ -1,7 +1,6 @@
 
 const CACHE_NAME = 'med-skazka-v1';
-const ASSETS = [
-  '',                 
+const ASSETS = [                
   './',                
   'index.html',
   'style.css',
