@@ -46,8 +46,8 @@ self.addEventListener('fetch', (event) => {
 
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js')
+        navigator.serviceWorker.register('sw.js') 
             .then(reg => console.log('Service Worker успешно зарегистрирован!', reg))
-            .catch(err => console.log('Ошибка регистрации Service Worker:', err));
+            .catch(err => console.error('Ошибка регистрации Service Worker:', err));
     });
 }
