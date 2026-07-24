@@ -39,15 +39,23 @@ self.addEventListener('activate', (event) => {
 });
 
 self.addEventListener('fetch', (event) => {
+  // Проверяем, если запрашивается корень сайта или папка проекта rjytw
+  const url = new URL(event.request.url);
+  if (url.pathname === '/rjytw/' || url.pathname === '/rjytw/index.html') {
+    event.respondWith(
+      caches.match('index.html').then((cachedResponse) => {
+        return cachedResponse || fetch(event.request);
+      })
+    );
+    return;
+  }
+
+  // Для всех остальных файлов стандартная проверка
   event.respondWith(
     caches.match(event.request).then((cachedResponse) => {
-      // ИСПРАВЛЕНИЕ: Если это пустой запрос к папке проекта, подменяем его на index.html
-      if (!cachedResponse && event.request.url.endsWith('/rjytw/')) {
-        return caches.match('./index.html');
-      }
-      return cachedResponse || fetch(event.request);
-    }).catch(() => {
-      return new Response('Network error', { status: 404 });
+      return cachedResponse || fetch(event.request).catch(() => {
+        return new Response('Network error', { status: 404 });
+      });
     })
   );
 });
