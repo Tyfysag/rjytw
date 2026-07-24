@@ -1,14 +1,17 @@
+
 const CACHE_NAME = 'med-skazka-v1';
 const ASSETS = [
-  './',
-  './index.html',
-  './style.css',
-  './lipa.jpg',
-  './grechiha.jpg',
-  './flowers.jpg',
-  './manifest.json'
+  '',                 
+  './',                
+  'index.html',
+  'style.css',
+  'manifest.json',
+  'lipa.jpg',
+  'grechiha.jpg',
+  'flowers.jpg',
+  'icon-192.png',
+  'icon-512.png'
 ];
-
 self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
