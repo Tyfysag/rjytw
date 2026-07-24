@@ -1,25 +1,25 @@
 const CACHE_NAME = 'med-skazka-v1';
 const ASSETS = [
-  '.',
-  'index.html',
-  'style.css',
-  'lipa.jpg',
-  'grechiha.jpg',
-  'flowers.jpg',
-  'manifest.json',
-  'icon-192.png',
-  'icon-512.png'
+  './',
+  './index.html',
+  './style.css',
+  './lipa.jpg',
+  './grechiha.jpg',
+  './flowers.jpg',
+  './manifest.json'
 ];
-
 
 self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
-      return cache.addAll(ASSETS);
+      return Promise.all(
+        ASSETS.map(url => {
+          return cache.add(url).catch(err => console.warn(`Не удалось закэшировать: ${url}`, err));
+        })
+      );
     })
   );
 });
-
 
 self.addEventListener('activate', (event) => {
   event.waitUntil(
@@ -35,7 +35,6 @@ self.addEventListener('activate', (event) => {
   );
 });
 
-
 self.addEventListener('fetch', (event) => {
   event.respondWith(
     caches.match(event.request).then((cachedResponse) => {
@@ -43,11 +42,3 @@ self.addEventListener('fetch', (event) => {
     })
   );
 });
-
-if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-        navigator.serviceWorker.register('sw.js') 
-            .then(reg => console.log('Service Worker успешно зарегистрирован!', reg))
-            .catch(err => console.error('Ошибка регистрации Service Worker:', err));
-    });
-}
