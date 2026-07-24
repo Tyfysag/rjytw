@@ -41,7 +41,16 @@ self.addEventListener('activate', (event) => {
 self.addEventListener('fetch', (event) => {
   event.respondWith(
     caches.match(event.request).then((cachedResponse) => {
-      return cachedResponse || fetch(event.request);
+      if (cachedResponse) {
+        return cachedResponse;
+      }
+      
+      // Если файла нет в кэше, делаем запрос в сеть
+      return fetch(event.request).catch((err) => {
+        console.warn('Сетевой запрос не удался:', event.request.url, err);
+        // Возвращаем пустой ответ вместо падения скрипта
+        return new Response('Network error occurred', { status: 404, statusText: 'Network error' });
+      });
     })
   );
 });
