@@ -5,16 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Медовая Сказка — Натуральный мёд с пасеки</title>
     
+    <!-- ИСПРАВЛЕНИЕ: Добавлены теги иконок, чтобы убрать ошибку favicon.ico 404 -->
+    <link rel="icon" type="image/png" href="./icon-192.png">
+    <link rel="shortcut icon" type="image/png" href="./icon-192.png">
+    
     <link rel="stylesheet" href="style.css">
-    
     <link rel="manifest" href="manifest.json">
-    
     <meta name="theme-color" content="#FFC107">
-
 </head>
 <body>
 
-    
     <header>
         <div class="logo">🐝 Медовая Сказка</div>
         <nav>
@@ -24,21 +24,17 @@
         </nav>
     </header>
 
-    
     <section class="hero">
         <h1>100% Натуральный мёд премиум качества</h1>
         <p>Собран с любовью на диких просторах Алтая. Без сахара и ГМО.</p>
         <a href="#products" class="btn">Перейти в каталог</a>
     </section>
 
-   
     <section class="products" id="products">
         <h2 class="section-title">Наш Медовый Ассортимент</h2>
         
         <div class="product-grid">
-            
             <div class="product-card">
-                
                 <img src="lipa.jpg" alt="Липовый мёд" class="product-img">
                 <h3>Липовый мёд</h3>
                 <p class="product-desc">Ароматный мёд с нежным вкусом. Идеален при простуде.</p>
@@ -46,9 +42,7 @@
                 <a href="#order" class="btn" onclick="selectHoney('Липовый мёд')">Купить</a>
             </div>
 
-            
             <div class="product-card">
-                
                 <img src="grechiha.jpg" alt="Гречишный мёд" class="product-img">
                 <h3>Гречишный мёд</h3>
                 <p class="product-desc">Терпкий вкус с горчинкой, богат железом и витаминами.</p>
@@ -56,9 +50,7 @@
                 <a href="#order" class="btn" onclick="selectHoney('Гречишный мёд')">Купить</a>
             </div>
 
-            
             <div class="product-card">
-                
                 <img src="flowers.jpg" alt="Цветочный (Разнотравье)" class="product-img">
                 <h3>Цветочный (Разнотравье)</h3>
                 <p class="product-desc">Собран с десятков видов луговых цветов. Мягкий вкус.</p>
@@ -68,7 +60,6 @@
         </div>
     </section>
 
-    
     <section class="order-section" id="order">
         <h2 class="section-title">Оформить заказ</h2>
         <div class="order-form">
@@ -94,14 +85,12 @@
         </div>
     </section>
 
-    
     <footer id="contacts">
         <p>📍 Наша пасека: Алтайский край, с. Чистый Луг</p>
         <p>📞 Телефон для справок: 8 (800) 555-35-35 | ✉️ Email: info@med-skazka.ru</p>
         <p style="margin-top: 15px; opacity: 0.7;">&copy; 2026 Медовая Сказка. Все права защищены.</p>
     </footer>
 
-    
     <script>
         function selectHoney(honeyName) {
             document.getElementById('honey-type').value = honeyName;
