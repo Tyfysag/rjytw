@@ -41,13 +41,13 @@ self.addEventListener('activate', (event) => {
 self.addEventListener('fetch', (event) => {
   event.respondWith(
     caches.match(event.request).then((cachedResponse) => {
-      if (cachedResponse) {
-        return cachedResponse;
+      // ИСПРАВЛЕНИЕ: Если это пустой запрос к папке проекта, подменяем его на index.html
+      if (!cachedResponse && event.request.url.endsWith('/rjytw/')) {
+        return caches.match('./index.html');
       }
-      
-      return fetch(event.request).catch((err) => {
-        return new Response('Network error', { status: 404 });
-      });
+      return cachedResponse || fetch(event.request);
+    }).catch(() => {
+      return new Response('Network error', { status: 404 });
     })
   );
 });
